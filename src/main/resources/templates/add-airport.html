@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head lang="en">
+<meta charset="ISO-8859-1">
+<link rel="stylesheet" type="text/css" th:href="@{/css/bootstrap.css}" />
+<link rel="stylesheet" type="text/css" th:href="@{/css/formstyling.css}" />
+<title>Airport Registration</title>
+</head>
+<body>
+
+	<div>
+		<form action="#" th:action="@{/addairport}" th:object="${airport}"
+			method="post">
+
+			<label for="airport_name">Airport Name</label> <input type="text"
+				th:field="*{airport_name}" id="airport_name"
+				placeholder="AirportName"> <span
+				th:if="${#fields.hasErrors('airport_name')}"
+				th:errors="*{airport_name}"></span> <input type="submit"
+				value="Add Airport">
+		</form>
+		<a class="btn btn-primary" href="/">Home</a>
+	</div>
+</body>
+</html>

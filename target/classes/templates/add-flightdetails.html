@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<link rel="stylesheet" type="text/css" th:href="@{/css/bootstrap.css}" />
+<link rel="stylesheet" type="text/css" th:href="@{/css/formstyling.css}" />
+<title>Flight Details Registration</title>
+</head>
+<body>
+	<div>
+		<form action="#" th:action="@{/addflightdetails}"
+			th:object="${flightDetails}" method="post">
+
+			<label for="destAirport.airport_name">Destination Airport
+				Name</label> <input type="text" th:field="*{destAirport.airport_name}"
+				id="destAirport.airport_name" placeholder="Destination Airport Name">
+			<span th:if="${#fields.hasErrors('destAirport.airport_name')}"
+				th:errors="*{destAirport.airport_name}"></span> <label
+				for="depAirport.airport_name">Departure Airport Name</label> <input
+				type="text" th:field="*{depAirport.airport_name}"
+				id="depAirport.airport_name" placeholder="Departure Airport Name">
+			<span th:if="${#fields.hasErrors('depAirport.airport_name')}"
+				th:errors="*{depAirport.airport_name}"></span> <label
+				for="airline.airline_name">Airline Name</label> <input type="text"
+				th:field="*{airline.airline_name}" id="airline.airline_name"
+				placeholder="Airline Name"> <span
+				th:if="${#fields.hasErrors('airline.airline_name')}"
+				th:errors="*{airline.airline_name}"></span> <label
+				for="departureDate">Departure Date</label> <input type="text"
+				th:field="*{departureDate}" id="departureDate"
+				placeholder="dd/mm/yyyy"> <span
+				th:if="${#fields.hasErrors('departureDate')}"
+				th:errors="*{departureDate}"></span> <input type="submit"
+				value="Add Flight Details">
+		</form>
+		<a class="btn btn-primary" href="/">Home</a>
+	</div>
+</body>
+</html>

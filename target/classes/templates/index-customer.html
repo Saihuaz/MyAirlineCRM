@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<link rel="stylesheet" type="text/css" th:href="@{/css/bootstrap.css}" />
+<link rel="stylesheet" type="text/css" th:href="@{/css/tablestyling.css}" />
+
+
+<title>Admin Customer Info</title>
+
+
+</head>
+<body>
+
+	<div>
+		<h2>Customer Details</h2>
+		<table>
+			<thead>
+				<tr>
+					<th>Customer ID</th>
+					<th>First Name</th>
+					<th>Last Name</th>
+					<th>Age</th>
+					<th>Edit</th>
+					<th>Delete</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="customer : ${customers}">
+					<td th:text="${customer.id}"></td>
+					<td th:text="${customer.first_name}"></td>
+					<td th:text="${customer.last_name}"></td>
+					<td th:text="${customer.age}"></td>
+					<td><a class="btn btn-default"
+						th:href="@{/editcustomer/{id}(id=${customer.id})}">Edit</a></td>
+					<td><a class="btn btn-default"
+						th:href="@{/deletecustomer/{id}(id=${customer.id})}">Delete</a></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<br>
+	<p>
+		<a class="btn btn-info" href="/customersignup">Add a new property type</a>
+		<a class="btn btn-primary" href="/">Home</a>
+	</p>
+
+</body>
+</html>

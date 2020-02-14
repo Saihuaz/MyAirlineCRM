@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<link rel="stylesheet" type="text/css" th:href="@{/css/bootstrap.css}" />
+<link rel="stylesheet" type="text/css" th:href="@{/css/formstyling.css}" />
+<title>Update Ticket Order</title>
+</head>
+<body>
+	<div>
+		<form action="#"
+			th:action="@{/updateticketorder/{id}(id=${ticketOrders.id})}"
+			th:object="${ticketOrders}" method="post">
+
+			<label for="id">Ticket Order ID</label> <input type="text"
+				th:field="*{id}" id="id" placeholder="TicketOrderID"> <span
+				th:if="${#fields.hasErrors('id')}" th:errors="*{id"></span> <label
+				for="price">Ticket Price</label> <input type="text"
+				th:field="*{price}" id="price" placeholder="TicketPrice"> <span
+				th:if="${#fields.hasErrors('price')}" th:errors="*{price"></span> <label
+				for="date_purchased">Ticket Purchase Date</label> <input type="text"
+				th:field="*{date_purchased}" id="date_purchased"
+				placeholder="DatePurchased"> <span
+				th:if="${#fields.hasErrors('date_purchased')}"
+				th:errors="*{date_purchased"></span> <label for="ticketCustomer.id">Customer
+				ID</label> <input type="text" th:field="*{ticketCustomer.id}"
+				id="ticketCustomer.id" placeholder="CustomerID"> <span
+				th:if="${#fields.hasErrors('ticketCustomer.id')}"
+				th:errors="*{ticketCustomer.id"></span> <label
+				for="ticketFlightDetails.id">Flight Details ID</label> <input
+				type="text" th:field="*{ticketFlightDetails.id}"
+				id="ticketFlightDetails.id" placeholder="FlightDetailsID"> <span
+				th:if="${#fields.hasErrors('ticketFlightDetails.id')}"
+				th:errors="*{ticketFlightDetails.id"></span> <input type="submit"
+				value="Add Ticket Order">
+		</form>
+		<a class="btn btn-primary" href="/">Home</a>
+	</div>
+</body>
+</html>

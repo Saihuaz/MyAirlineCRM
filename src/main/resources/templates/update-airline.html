@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<link rel="stylesheet" type="text/css" th:href="@{/css/bootstrap.css}" />
+<link rel="stylesheet" type="text/css" th:href="@{/css/formstyling.css}" />
+<title>Update Airline</title>
+</head>
+<body>
+	<div>
+		<form action="#" th:action="@{/updateairline/{id}(id=${airlines.id})}"
+			th:object="${airlines}" method="post">
+			<label for="airline_name">Airline Name</label> <input type="text"
+				th:field="*{airline_name}" id="airline_name"
+				placeholder="AirlineName"> <span
+				th:if="${#fields.hasErrors('airline_name')}"
+				th:errors="*{airline_name}"></span> <input type="submit"
+				value="Update Airline">
+		</form>
+		<a class="btn btn-primary" href="/">Home</a>
+	</div>
+</body>
+</html>

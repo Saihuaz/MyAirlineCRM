@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head lang="en">
+<meta charset="ISO-8859-1">
+<link rel="stylesheet" type="text/css" th:href="@{/css/bootstrap.css}" />
+<link rel="stylesheet" type="text/css" th:href="@{/css/formstyling.css}" />
+<title>User Registration Page</title>
+</head>
+<body>
+	<div>
+		<form action="#" th:action="@{/adduserlogin}" th:object="${userLogin}"
+			method="post">
+
+			<label for="name">Name</label> <input type="text" th:field="*{name}"
+				id="name" placeholder="Name"> <span
+				th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></span> <label
+				for="email">Email</label> <input type="text" th:field="*{email}"
+				id="email" placeholder="Email"> <span
+				th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></span> <input
+				type="submit" value="Add User Login">
+		</form>
+		<a class="btn btn-primary" href="/">Home</a>
+	</div>
+</body>
+</html>

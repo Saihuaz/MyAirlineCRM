@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<link rel="stylesheet" type="text/css" th:href="@{/css/bootstrap.css}" />
+<link rel="stylesheet" type="text/css" th:href="@{/css/formstyling.css}" />
+<title>Address Registration</title>
+</head>
+<body>
+	<div>
+		<form action="#" th:action="@{/addcustomeraddr}"
+			th:object="${customerAddr}" method="post">
+
+			<label for="house_number">House Number</label> <input type="text"
+				th:field="*{house_number}" id="house_number"
+				placeholder="HouseNumber"> <span
+				th:if="${#fields.hasErrors('house_number')}"
+				th:errors="*{house_number}"></span> <label for="street">Street
+				Name</label> <input type="text" th:field="*{street}" id="street"
+				placeholder="Street"> <span
+				th:if="${#fields.hasErrors('street')}" th:errors="*{street}"></span>
+
+			<label for="citye">City</label> <input type="text" th:field="*{city}"
+				id="city" placeholder="City"> <span
+				th:if="${#fields.hasErrors('city')}" th:errors="*{city}"></span> <label
+				for="country">Country</label> <input type="text"
+				th:field="*{country}" id="country" placeholder="Country"> <span
+				th:if="${#fields.hasErrors('country')}" th:errors="*{country}"></span>
+
+			<label for="customer.id">Customer ID</label> <input type="text"
+				th:field="*{customer.id}" id="customer.id" placeholder="CustomerID">
+			<span th:if="${#fields.hasErrors('customer.id')}"
+				th:errors="*{customer.id}"></span> <input type="submit"
+				value="Add Customer Address">
+		</form>
+		<a class="btn btn-primary" href="/">Home</a>
+	</div>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Login</title>
+</head>
+<body>
+
+	<div>
+		<form name="loginform" onSubmit="return validateForm();"
+			action="main.html" method="post">
+			<label>User name</label> <input type="text" name="usr"
+				placeholder="username"> <label>Password</label> <input
+				type="password" name="pword" placeholder="password"> <input
+				type="submit" value="Login" />
+		</form>
+	</div>
+	<script>
+		function validateForm() {
+			var un = document.loginform.usr.value;
+			var pw = document.loginform.pword.value;
+			var username = "username";
+			var password = "password";
+			if ((un == username) && (pw == password)) {
+				return true;
+			} else {
+				alert("Login was unsuccessful, please check your username and password");
+				return false;
+			}
+		}
+	</script>
+
+</body>
+</html>

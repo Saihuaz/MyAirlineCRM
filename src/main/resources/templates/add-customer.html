@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<link rel="stylesheet" type="text/css" th:href="@{/css/bootstrap.css}" />
+<link rel="stylesheet" type="text/css" th:href="@{/css/formstyling.css}" />
+
+
+<title>Customer Registration</title>
+</head>
+<body>
+
+	<div>
+		<form action="#" th:action="@{/addcustomer}" th:object="${customer}"
+			method="post">
+			<label for="first_name">First Name</label> <input type="text"
+				th:field="*{first_name}" id="first_name" placeholder="FirstName">
+			<span th:if="${#fields.hasErrors('first_name')}"
+				th:errors="*{first_name}"></span> <label for="last_name">Last
+				Name</label> <input type="text" th:field="*{last_name}" id="last_name"
+				placeholder="LastName"> <span
+				th:if="${#fields.hasErrors('last_name')}" th:errors="*{last_name}"></span>
+
+			<label for="age">Age</label> <input type="text" th:field="*{age}"
+				id="age" placeholder="Age"> <span
+				th:if="${#fields.hasErrors('age')}" th:errors="*{age}"></span> <input
+				type="submit" value="Add Customer">
+		</form>
+		<a class="btn btn-primary" href="/">Home</a>
+	</div>
+
+</body>
+</html>

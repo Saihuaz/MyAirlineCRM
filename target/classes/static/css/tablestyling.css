@@ -1,0 +1,25 @@
+body {
+	/* Just to center the form on the page */
+	margin: 0 auto;
+	width: 450px;
+	text-align: center; vertical-align : middle;
+	/* To see the outline of the form */
+	padding: 1em;
+	border: 3px solid black;
+	border-radius: 1em;
+	background-color: rgb(248, 248, 255);
+	vertical-align: middle;
+}
+
+table, th, td {
+	border: 1px solid black;
+	text-align: center;
+	vertical-align: middle;
+	padding: 0.5rem;
+}
+
+div {
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+}

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<link rel="stylesheet" type="text/css" th:href="@{/css/bootstrap.css}" />
+<link rel="stylesheet" type="text/css" th:href="@{/css/tablestyling.css}" />
+
+<style>
+body {
+	width: 800px;
+}
+</style>
+
+<title>Admin Flight Details</title>
+</head>
+<body>
+
+	<div>
+		<h2>Flight Details</h2>
+		<table>
+			<thead>
+				<tr>
+					<th>Flight Details ID</th>
+					<th>Destination Airport</th>
+					<th>Departure Airport</th>
+					<th>Airline Name</th>
+					<th>Departure Date</th>
+					<th>Edit</th>
+					<th>Delete</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="flightDetails : ${flightdetails}">
+					<td th:text="${flightDetails.id}"></td>
+					<td th:text="${flightDetails.destAirport.airport_name}"></td>
+					<td th:text="${flightDetails.depAirport.airport_name}"></td>
+					<td th:text="${flightDetails.airline.airline_name}"></td>
+					<td th:text="${flightDetails.departureDate}"></td>
+					<td><a class="btn btn-default"
+						th:href="@{/editflightdetails/{id}(id=${flightDetails.id})}">Edit</a></td>
+					<td><a class="btn btn-default"
+						th:href="@{/deleteflightdetails/{id}(id=${flightDetails.id})}">Delete</a></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<br>
+	<p>
+		<a class="btn btn-info" href="/flightdetailssignup">Add a new
+			Flight Details</a> <a class="btn btn-primary" href="/">Home</a>
+	</p>
+
+</body>
+</html>

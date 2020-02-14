@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<link rel="stylesheet" type="text/css" th:href="@{/css/bootstrap.css}" />
+<link rel="stylesheet" type="text/css" th:href="@{/css/tablestyling.css}" />
+
+<style>
+body {
+	width: 850px;
+}
+</style>
+
+<title>Admin Customer Address</title>
+</head>
+
+<body>
+
+	<div>
+		<h2>Customer Address Details</h2>
+		<table>
+			<thead>
+				<tr>
+					<th>Customer ID</th>
+					<th>First Name</th>
+					<th>Last Name</th>
+					<th>Address ID</th>
+					<th>House Number</th>
+					<th>Street Name</th>
+					<th>City</th>
+					<th>Country</th>
+					<th>Edit</th>
+					<th>Delete</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="customerAddr : ${customer_address}">
+
+					<td th:text="${customerAddr.customer.id}"></td>
+					<td th:text="${customerAddr.customer.first_name}"></td>
+					<td th:text="${customerAddr.customer.last_name}"></td>
+					<td th:text="${customerAddr.id}"></td>
+					<td th:text="${customerAddr.house_number}"></td>
+					<td th:text="${customerAddr.street}"></td>
+					<td th:text="${customerAddr.city}"></td>
+					<td th:text="${customerAddr.country}"></td>
+
+					<td><a class="btn btn-default"
+						th:href="@{/editcustomeraddr/{id}(id=${customerAddr.id})}">Edit</a></td>
+					<td><a class="btn btn-default"
+						th:href="@{/deletecustomeraddr/{id}(id=${customerAddr.id})}">Delete</a></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<br>
+	<p>
+		<a class="btn btn-info" href="/customeraddrsignup">Add a new
+			Address details</a> <a class="btn btn-primary" href="/">Home</a>
+	</p>
+
+
+</body>
+</html>

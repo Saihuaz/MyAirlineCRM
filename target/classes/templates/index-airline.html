@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<link rel="stylesheet" type="text/css" th:href="@{/css/bootstrap.css}" />
+<link rel="stylesheet" type="text/css" th:href="@{/css/tablestyling.css}" />
+
+<style>
+body {width: 350px;}
+</style>
+
+
+<title>Admin Airline Info</title>
+
+
+</head>
+<body>
+
+<div>
+		<h2>Airline Details</h2>
+		<table>
+			<thead>
+				<tr>
+					<th>Airline Name</th>
+					<th>Edit</th>
+					<th>Delete</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="airline : ${airlines}">
+					<td th:text="${airline.airline_name}"></td>
+					<td><a class="btn btn-default" th:href="@{/editairline/{id}(id=${airline.id})}">Edit</a></td>
+					<td><a class="btn btn-default" th:href="@{/deleteairline/{id}(id=${airline.id})}">Delete</a></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<br>
+	<p>
+		<a class="btn btn-info" href="/airlinesignup">Add a new airline</a>
+		<a class="btn btn-primary" href="/">Home</a>
+	</p>
+
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+	
+	<link rel="stylesheet" type="text/css" th:href="@{/css/tablestyling.css}" />
+	
+<style>
+body { width: 400px;}
+</style>
+
+<title>Admin Airport Info</title>
+
+
+</head>
+<body>
+
+<div>
+		<h2>Airport Details</h2>
+		<table>
+			<thead>
+				<tr>
+					<th>Airport Name</th>
+					<th>Edit</th>
+					<th>Delete</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="airport : ${airports}">
+					<td th:text="${airport.airport_name}"></td>
+					<td><a class="btn btn-default" th:href="@{/editairport/{id}(id=${airport.id})}">Edit</a></td>
+					<td><a class="btn btn-default" th:href="@{/deleteairport/{id}(id=${airport.id})}">Delete</a></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<br>
+	<p>
+		<a class="btn btn-info" href="/airportsignup">Add a new airport</a>
+		<a class="btn btn-primary" href="/">Home</a>
+	</p>
+
+</body>
+</html>

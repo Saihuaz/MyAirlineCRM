@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<link rel="stylesheet" type="text/css" th:href="@{/css/bootstrap.css}" />
+<link rel="stylesheet" type="text/css" th:href="@{/css/tablestyling.css}" />
+
+<style>
+body {
+	width: 1000px;
+}
+</style>
+
+<title>Admin Ticket Order</title>
+</head>
+<body>
+
+	<div>
+		<h2>Ticket Order Details</h2>
+		<table>
+			<thead>
+				<tr>
+					<th>Customer ID</th>
+					<th>First Name</th>
+					<th>Last Name</th>
+					<th>Ticket Order ID</th>
+					<th>Price</th>
+					<th>Date Purchased</th>
+					<th>Departure Airport</th>
+					<th>Departure Time</th>
+					<th>Destination Airport</th>
+					<th>Edit</th>
+					<th>Delete</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="ticketOrder : ${ticketOrders}">
+
+					<td th:text="${ticketOrder.ticketCustomer.id}"></td>
+					<td th:text="${ticketOrder.ticketCustomer.first_name}"></td>
+					<td th:text="${ticketOrder.ticketCustomer.last_name}"></td>
+					<td th:text="${ticketOrder.id}"></td>
+					<td th:text="${ticketOrder.price}"></td>
+					<td th:text="${ticketOrder.date_purchased}"></td>
+					<td
+						th:text="${ticketOrder.ticketFlightDetails.depAirport.airport_name}"></td>
+					<td th:text="${ticketOrder.ticketFlightDetails.departureDate}"></td>
+					<td
+						th:text="${ticketOrder.ticketFlightDetails.destAirport.airport_name}"></td>
+
+					<td><a class="btn btn-default"
+						th:href="@{/editticketorder/{id}(id=${ticketOrder.id})}">Edit</a></td>
+					<td><a class="btn btn-default"
+						th:href="@{/deleteticketorder/{id}(id=${ticketOrder.id})}">Delete</a></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<br>
+	<p>
+		<a class="btn btn-info" href="/ticketordersignup">Add a new Ticket
+			Order Details</a> <a class="btn btn-primary" href="/">Home</a>
+	</p>
+
+
+</body>
+</html>

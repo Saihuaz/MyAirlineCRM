@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<link rel="stylesheet" type="text/css" th:href="@{/css/bootstrap.css}" />
+<link rel="stylesheet" type="text/css" th:href="@{/css/formstyling.css}" />
+<title>Update Airport</title>
+</head>
+<body>
+	<div>
+		<form action="#" th:action="@{/updateairport/{id}(id=${airports.id})}"
+			th:object="${airports}" method="post">
+			<label for="airport_name">Airport Name</label> <input type="text"
+				th:field="*{airport_name}" id="airport_name"
+				placeholder="AirportName"> <span
+				th:if="${#fields.hasErrors('airport_name')}"
+				th:errors="*{airport_name}"></span> <input type="submit"
+				value="Update Airport">
+		</form>
+		<a class="btn btn-primary" href="/">Home</a>
+	</div>
+</body>
+</html>
